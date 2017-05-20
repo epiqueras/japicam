@@ -1,0 +1,27 @@
+{
+  "name": "japicam",
+  "version": "0.5.0",
+  "description": "JSON API Caller And Middleware.",
+  "main": "cjs/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epiqueras/japicam.git"
+  },
+  "keywords": [
+    "API",
+    "JSON",
+    "HTTP",
+    "Ajax",
+    "Redux",
+    "Middleware"
+  ],
+  "author": "epiqueras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/epiqueras/japicam/issues"
+  },
+  "homepage": "https://github.com/epiqueras/japicam#readme"
+}

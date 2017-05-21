@@ -2,10 +2,22 @@
   "name": "japicam",
   "version": "0.5.0",
   "description": "JSON API Caller And Middleware.",
-  "main": "cjs/index.js",
+  "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "precommit": "yarn lint",
+    "prepush": "yarn lint",
+    "start": "babel ./src -d ./dist -w",
+    "clean": "rimraf ./dist",
+    "build": "babel ./src -d ./dist",
+    "lint": "xo",
+    "prepublish": "yarn run clean && yarn lint && yarn run build"
   },
+  "files": [
+    "src",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/epiqueras/japicam.git"
@@ -23,5 +35,40 @@
   "bugs": {
     "url": "https://github.com/epiqueras/japicam/issues"
   },
-  "homepage": "https://github.com/epiqueras/japicam#readme"
+  "homepage": "https://github.com/epiqueras/japicam#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.0",
+    "husky": "^0.13.3",
+    "rimraf": "^2.6.1",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "esnext": true,
+    "semicolon": false,
+    "space": 2,
+    "rules": {
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "no-return-assign": "off",
+      "import/no-unassigned-import": "off",
+      "arrow-body-style": [
+        "error",
+        "as-needed"
+      ]
+    }
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  }
 }

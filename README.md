@@ -34,7 +34,7 @@ dispatch({
 })
 ```
 
-When the value of onRequest, onSuccess, onTimeout, or onError is a string. JAPICAM will dispatch an action with `type: thatString` and `action: apiAction` or `json: responseJson` or `error: responseError`. This way you don't have to create an action creator function to handle request responses in your reducers.
+When the value of onRequest, onSuccess, onTimeout, or onError is a string. JAPICAM will dispatch an action with `type: thatString` and `action: apiAction` or `json: responseJson` or `error: responseError`. This way you don't have to create an action creator function to handle request events in your reducers.
 
 Any property on the action object will overwrite those that initialized JAPICAM. Think of the initial configuration object as specifying defaults that you can later overwrite in specific actions.
 

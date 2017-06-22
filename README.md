@@ -18,6 +18,7 @@ japicam({ // You can configure as many APIs as you want
   timeout: 1000, // Optional, defaults to 5000
   body: {}, // Optional, won't be used in 'GET' requests
   params: {}, // Optional, extra properties to assign to the request object
+  onRequest: action => {/* ... */} || 'REQUEST_SENT', // Optional, action creator or action name to dispatch when the request is sent
   onSuccess: json => {/* ... */} || 'FETCHED_DATA', // Optional, action creator or action name to dispatch when the request is succesful
   onTimeout: error => {/* ... */} || 'TIMED_OUT', // Optional, action creator or action name to dispatch when the request times out
   onError: (error || json) => {/* ... */} || 'REQUEST_ERROR', // Optional, action creator or action name to dispatch when the request throws an error or the response is not in the range 200-299
@@ -33,7 +34,7 @@ dispatch({
 })
 ```
 
-When the value of onSuccess, onTimeout, or onError is a string. JAPICAM will dispatch an action with `type: thatString` and `json: responseJson` or `error: responseError`. This way you don't have to create an action creator function to handle request responses in your reducers.
+When the value of onRequest, onSuccess, onTimeout, or onError is a string. JAPICAM will dispatch an action with `type: thatString` and `action: apiAction` or `json: responseJson` or `error: responseError`. This way you don't have to create an action creator function to handle request responses in your reducers.
 
 Any property on the action object will overwrite those that initialized JAPICAM. Think of the initial configuration object as specifying defaults that you can later overwrite in specific actions.
 
